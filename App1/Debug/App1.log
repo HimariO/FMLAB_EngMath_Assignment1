@@ -1,0 +1,7 @@
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (App1.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  MainPage.xaml.cpp
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\mainpage.xaml.cpp(115): warning C4018: '>': signed/unsigned 不相符
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\mainpage.xaml.cpp(126): warning C4018: '>': signed/unsigned 不相符
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\mainpage.xaml.cpp(167): warning C4715: '<lambda_f71c29949fdf296480b8b25449f84c16>::operator()': 不是所有控制路徑都傳回值
+  App1.vcxproj -> C:\Users\伯軒\Documents\Visual Studio 2015\Projects\FMLAB\Debug\App1\FMLAB.exe
+  App1.vcxproj -> C:\Users\伯軒\Documents\Visual Studio 2015\Projects\FMLAB\Debug\App1\FMLAB.pdb (Partial PDB)
