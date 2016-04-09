@@ -176,12 +176,19 @@ Variable* up_tri(Args args) {
 	}
 	//sorting to upper matrix form.
 	Matrix sorted;
+	std::vector<int> left;
 	int swap_sign = 1;
 
 	for (auto pair : order_record) {
 		if (pair.first != pair.second)
 			swap_sign *= -1;
 		sorted.push_back(mtx[pair.second]);
+		left.push_back(pair.second);
+	}
+
+	for (int i = 0; i < mtx.size(); i++) {
+		if (std::find(left.begin(), left.end(), i) == left.end())
+			sorted.push_back(mtx[i]);
 	}
 
 	if (args.size() == 2) {
@@ -301,8 +308,9 @@ Variable* RREF(Args args) {
 				continue;
 			}
 
-			for (int j = piv_row.size() - 1; j >= 0; j--)
+			for (int j = piv_row.size() - 1; j >= 0; j--) {
 				mtx[piv_ind][j] /= mtx[piv_ind][i];
+			}
 
 			for (int down_row = 0; down_row < mtx.size(); down_row++) {
 				if (down_row == piv_ind)
@@ -311,6 +319,8 @@ Variable* RREF(Args args) {
 				double scalar = mtx[down_row][i];
 				for (int row_index = 0; row_index < piv_row.size(); row_index++) {
 					mtx[down_row][row_index] -= mtx[piv_ind][row_index] * scalar;
+					if (std::abs(mtx[down_row][row_index]) < 1.e-10)
+						mtx[down_row][row_index] = 0;
 				}
 			}
 
@@ -318,11 +328,31 @@ Variable* RREF(Args args) {
 			break;
 		}
 
+
+
+		std::cout << "i:" << i << std::endl;
+		for (auto rows : mtx) {
+			std::cout << "{";
+			for (auto ele : rows) {
+				std::cout << ele << ",";
+			}
+			std::cout << "}" << std::endl;
+		}
+		std::cout << std::endl;
+
 	}
 	//sorting to upper matrix form.
 	Matrix sorted;
+	std::vector<int> left;
+
 	for (auto pair : order_record) {
 		sorted.push_back(mtx[pair.second]);
+		left.push_back(pair.second);
+	}
+
+	for (int i = 0; i < mtx.size(); i++) {
+		if (std::find(left.begin(), left.end(), i) == left.end())
+			sorted.push_back(mtx[i]);
 	}
 
 	// standar way to return result.
@@ -401,6 +431,10 @@ Variable* det(Args args) { //matrix determinant (matrix)1 args
 	Matrix mtx = vmatrix->getMatrixData();
 	double result_d = 1;
 
+	if (mtx.size() != mtx[0].size())
+		throw std::runtime_error(vException::MatrixNotCompatiableShapeException
+			+ "(" + std::to_string(mtx.size()) + "," + std::to_string(mtx[0].size()) + ")");
+
 	if (mtx.size() == 2 && mtx[0].size() == 2) {
 		return new vNumber(mtx[0][0] * mtx[1][1] - mtx[1][0] * mtx[0][1]);
 	}
@@ -417,7 +451,7 @@ Variable* det(Args args) { //matrix determinant (matrix)1 args
 }
 
 
-Variable* cofactor(Args args) { //matrix determinant (matrix)1 args
+Variable* cofactor(Args args) { //matrix cofactor (matrix)1 args
 	Variable* matrix = args[0];
 
 	if (matrix->gettype() != vType::vector)
@@ -498,7 +532,7 @@ Variable* adj(Args args) { // Adjugate matrix (matrix)1 args
 }
 
 
-Variable* inverse(Args args) { //matrix inverse (matrix)1 args
+Variable* inverse2(Args args) { //matrix inverse (matrix)1 args
 	Variable* matrix = args[0];
 
 	if (matrix->gettype() != vType::vector)
@@ -530,6 +564,40 @@ Variable* inverse(Args args) { //matrix inverse (matrix)1 args
 
 	result->setMatrixData(new_mtx);
 	return result;
+}
+
+
+Variable* inverse(Args args) { //matrix inverse (matrix)1 args
+	Variable* matrix = args[0];
+
+	if (matrix->gettype() != vType::vector)
+		throw std::runtime_error(vException::TypeException + matrix->name);
+	vVector *vmatrix = dynamic_cast<vVector*>(matrix);
+
+	if (!vmatrix->isMarix())
+		throw std::runtime_error(vException::TypeException + matrix->name);
+
+	Matrix mtx = vmatrix->getMatrixData();
+	Matrix new_mtx;
+	vVector *new_vmtx = new vVector();
+	vVector *result = new vVector();
+
+	for (int i = 0; i<mtx.size(); i++) {
+		Row row;
+		for (int j = 0; j<mtx[0].size(); j++) {
+			if (i == j)
+				row.push_back(1);
+			else
+				row.push_back(0);
+		}
+		new_mtx.push_back(row);
+	}
+	new_vmtx->setMatrixData(new_mtx);
+
+	Variable *concat_two = concat(Args{ vmatrix, new_vmtx , new vBool(false) });
+	Variable *inver = RREF(Args{ concat_two });
+
+	return slice(Args{ inver, new vNumber(0), new vNumber(mtx.size()-1) , new vNumber(mtx[0].size()) , new vNumber(mtx[0].size() * 2 - 1) });
 }
 
 
@@ -668,6 +736,9 @@ Variable* QR_Q(Args args) {  //QR (matrix)1 args
 
 
 Variable* eig(Args args) {  //QR (matrix)1 args
+	if (args.size() != 2) 
+		throw std::runtime_error(vException::ArgNumException + "eig(matrix, step)");
+
 	Variable* matrix = args[0];
 	Variable* step_v = args[1];
 
@@ -697,14 +768,19 @@ Variable* eig(Args args) {  //QR (matrix)1 args
 	vQ_pre->setMatrixData(Q);
 
 	for (int n = 0; n<step; n++) {
-		vVector* vQ = dynamic_cast<vVector*>(QR_Q(Args{ vA }));//trans for convin
-		vVector* vQ_t = dynamic_cast<vVector*>(trans(Args{ vQ }));
-		vA = *((*vQ_t) * (*vA)) * (*vQ);
-		vQ_pre = (*vQ_pre) * (*vQ);
-
+		vVector* vQ = dynamic_cast<vVector*>(QR_Q(Args{ vA }));//this actual is Q_t
+		vVector* vQ_t = dynamic_cast<vVector*>(trans(Args{ vQ }));//and this is Q
+		vA = *((*vQ) * (*vA)) * (*vQ_t);
+		vQ_pre = (*vQ_pre) * (*vQ_t);
 	}
 
-	vVector *result = dynamic_cast<vVector*>(concat(Args{ vA, vQ_pre, new vBool(true) }));
+	A = vA->getMatrixData();
+	for (int i = 0; i < A.size(); i++)
+		for (int j = 0; j < A[0].size(); j++)
+			A[i][j] = i == j ? A[i][j] : 0;
+	vA->setMatrixData(A);
+
+	vVector *result = dynamic_cast<vVector*>(concat(Args{ vQ_pre, vA, new vBool(true) }));
 	return result;
 }
 

@@ -31,7 +31,19 @@ std::map<std::string, FnPtr> Parser::standar_fun_talbe{
 	{"LeastSquare", LeastSquare },
 	{"eig", eig},
 	{"QR_Q", QR_Q },
-	{"rank", rank }
+	{"rank", rank },
+	{ "dot",dot },
+	{ "vectest",vectest },
+	{ "addition",addition },
+	{ "scalar_M",scalar_M },
+	{ "norm_Vector",norm_Vector },
+	{ "normalization",normalization },
+	{ "cross",cross },
+	{ "comp",comp },
+	{ "proj",proj },
+	{ "parallel",parallel },
+	{ "area",area },
+	{ "orthogonal",orthogonal },
 };
 
 bool Parser::std_table_init = false;
@@ -197,7 +209,7 @@ Variable* Parser::parseRaw(std::string input, bool crossSection)
 		}//while end
 	}//for end
 
-	if(!find_something&& node_dic.find("<#" + std::to_string(node_dic.size()) + "/>") == node_dic.end())
+	if(!find_something || node_dic.find("<#" + std::to_string(node_dic.size()) + "/>") == node_dic.end())
 		throw std::runtime_error(vException::WTF);
 
 	SyntaxNode *last = node_dic["<#" + std::to_string(node_dic.size()) + "/>"];

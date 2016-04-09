@@ -30,10 +30,13 @@ namespace App1
 		property Windows::Foundation::Collections::IVector<String^> ^TestAuto;
 		Parser *parser;
 		std::vector<std::string> var_list;
+		std::vector<String^> history;
 		StorageFolder^ working_dir;
 
 		int nLocalVar = 0;
 		int nGlobalVar = 0;
+		int history_index = 0;
+		bool onSugess = true;
 
 		void PickFile();
 		void LoadDataFile(std::string path);

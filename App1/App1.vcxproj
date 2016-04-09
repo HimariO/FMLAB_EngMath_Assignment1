@@ -196,6 +196,7 @@
     <ClCompile Include="SyntaxNode.cpp" />
     <ClCompile Include="UIdataContainer.cpp" />
     <ClCompile Include="Variable.cpp" />
+    <ClCompile Include="VectorComput.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

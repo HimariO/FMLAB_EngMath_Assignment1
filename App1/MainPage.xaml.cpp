@@ -39,7 +39,6 @@ MainPage::MainPage()
 	TestAuto = ref new Platform::Collections::Vector<String^>{
 		"vectest",
 		"mtxtest",
-		"dot",
 		"rref",
 		"trans",
 		"slice",
@@ -51,8 +50,23 @@ MainPage::MainPage()
 		"low_tri",
 		"solveLinearSys",
 		"LeastSquare",
+		"eig",
+		"QR_Q",
+		"rank",
 		"pickfolder",
 		"loadfile",
+		"dot",
+		"vectest",
+		"addition",
+		"scalar_M",
+		"norm_Vector",
+		"normalization",
+		"cross",
+		"comp",
+		"proj",
+		"parallel",
+		"area",
+		"orthogonal",
 	};
 	OutputList = ref new Platform::Collections::Vector<OutputDisplay^>();
 	parser = new Parser();
@@ -71,6 +85,7 @@ std::string  STos(String^ str) {
 	std::wstring ws = str->Data();
 	typedef std::codecvt_utf8<wchar_t> convert_typeX;
 	std::wstring_convert<convert_typeX, wchar_t> converterX;
+
 	return converterX.to_bytes(ws);
 }
 
@@ -78,7 +93,7 @@ String^  sToS(std::string str) {
 	typedef std::codecvt_utf8<wchar_t> convert_typeX;
 	std::wstring_convert<convert_typeX, wchar_t> converterX;
 	std::wstring ws = converterX.from_bytes(str);
-
+	
 	return ref new String(ws.c_str());
 }
 
@@ -275,7 +290,9 @@ void App1::MainPage::Grid_DragEnter(Platform::Object^ sender, Windows::UI::Xaml:
 
 void App1::MainPage::AutoSuggestBox_KeyDown(Platform::Object^ sender, Windows::UI::Xaml::Input::KeyRoutedEventArgs^ e)
 {
-	
+	if (e->Key == Windows::System::VirtualKey::Shift) {
+		onSugess = false;
+	}
 }
 
 
@@ -311,14 +328,34 @@ void App1::MainPage::AutoSuggestBox_KeyUp(Platform::Object^ sender, Windows::UI:
 
 				UpdateVarList();
 				OutputList->Append(out);
+				history.push_back(CommandLine->Text);
 			}
 		}
-		catch (std::string error) {
-			out = ref new OutputDisplay(CommandLine->Text, sToS(error));
+		catch (std::runtime_error error) {
+			out = ref new OutputDisplay(CommandLine->Text, sToS(error.what()));
 			OutputList->Append(out);
 		}
 
 		CommandLine->Text = "";
+	}
+	else if (key == Windows::System::VirtualKey::Up && !onSugess) {
+		if (history_index < history.size()-1 && history.size()>0) {
+			history_index++;
+			int aa=history.size();
+			int bb = history_index;
+
+			CommandLine->Text = history[history.size() - history_index-1];
+		}
+	}
+	else if (key == Windows::System::VirtualKey::Down && !onSugess) {
+		if (history_index >0 && history.size()>0) {
+			history_index--;
+			CommandLine->Text = history[history.size() - history_index - 1];
+		}
+	}
+	else if (key == Windows::System::VirtualKey::Shift) {
+			onSugess = true;
+			history_index = 0;
 	}
 }
 
@@ -326,7 +363,8 @@ void App1::MainPage::AutoSuggestBox_KeyUp(Platform::Object^ sender, Windows::UI:
 void App1::MainPage::CommandLine_TextChanged(Windows::UI::Xaml::Controls::AutoSuggestBox^ sender, Windows::UI::Xaml::Controls::AutoSuggestBoxTextChangedEventArgs^ args)
 {
 	if (args->Reason == Windows::UI::Xaml::Controls::AutoSuggestionBoxTextChangeReason::UserInput 
-		&& CommandLine->Text!="") {
+		&& CommandLine->Text!="" 
+		&& onSugess) {
 		Windows::Foundation::Collections::IVector<String^> ^filtered = ref new Platform::Collections::Vector<String^>();
 		
 		std::string input = STos(CommandLine->Text);
@@ -344,6 +382,7 @@ void App1::MainPage::CommandLine_TextChanged(Windows::UI::Xaml::Controls::AutoSu
 					filtered->Append(vname);
 			}
 		}
+
 		sender->ItemsSource = filtered;
 	}
 }
@@ -351,7 +390,7 @@ void App1::MainPage::CommandLine_TextChanged(Windows::UI::Xaml::Controls::AutoSu
 
 void App1::MainPage::CommandLine_SuggestionChosen(Windows::UI::Xaml::Controls::AutoSuggestBox^ sender, Windows::UI::Xaml::Controls::AutoSuggestBoxSuggestionChosenEventArgs^ args)
 {
-
+	
 }
 
 

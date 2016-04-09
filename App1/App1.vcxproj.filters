@@ -21,6 +21,7 @@
     <ClCompile Include="SyntaxNode.cpp" />
     <ClCompile Include="Variable.cpp" />
     <ClCompile Include="MatrixComput.cpp" />
+    <ClCompile Include="VectorComput.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />

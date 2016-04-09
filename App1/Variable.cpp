@@ -13,7 +13,7 @@ vType Variable::gettype() const
 
 std::string Variable::toString() const
 {
-	return this -> data;
+	return this->data;
 }
 
 std::string Variable::toComputString() const
@@ -60,13 +60,13 @@ vNumber* vNumber::selfCast() {
 }
 
 
-vNumber* vNumber::operator+( const Variable &n2) {
+vNumber* vNumber::operator+(const Variable &n2) {
 
 	if (n2.gettype() == vType::number) {
 		vNumber &cas = (vNumber&)(n2);
 		return new vNumber(this->data + cas.data);
 	}
-	return NULL;
+	throw std::runtime_error(vException::TypeException + n2.name);
 }
 
 
@@ -77,7 +77,7 @@ vNumber* vNumber::operator-(const Variable & n2)
 		return new vNumber(this->data - cas.data);
 	}
 
-	return NULL;
+	throw std::runtime_error(vException::TypeException + n2.name);
 }
 
 
@@ -87,7 +87,7 @@ vNumber * vNumber::operator*(const Variable & n2)
 		vNumber &cas = (vNumber&)(n2);
 		return new vNumber(this->data * cas.data);
 	}
-	return nullptr;
+	throw std::runtime_error(vException::TypeException + n2.name);
 }
 
 
@@ -97,7 +97,7 @@ vNumber * vNumber::operator/(const Variable & n2)
 		vNumber &cas = (vNumber&)(n2);
 		return new vNumber(this->data / cas.data);
 	}
-	return nullptr;
+	throw std::runtime_error(vException::TypeException + n2.name);
 }
 
 
@@ -140,12 +140,12 @@ vVector::vVector(std::string data) //  [Discard for now]
 	pos = 0;
 	while ((pos = content.find(",", pos)) != std::string::npos) {
 		//num_vec.push_back(new vNumber(content.substr(0, pos)));
-		
-		content.replace(0, pos+1, "");
+
+		content.replace(0, pos + 1, "");
 	}
 	if (content.size() > 0)
 		var_vec.push_back(new vNumber(content));
-	
+
 
 }
 
@@ -160,11 +160,11 @@ std::string vVector::toString() const
 {
 	std::string output = "{";
 
-	for (auto v : this->data) { 
+	for (auto v : this->data) {
 		if (v->gettype() == vType::vector)
 			output += v->toString() + ",\n";
 		else
-			output += v->toString() +",";
+			output += v->toString() + ",";
 	}
 	output += "}";
 	return output;
@@ -175,7 +175,7 @@ std::string vVector::toComputString() const
 	std::string output = "{";
 
 	for (auto v : this->data) {
-		output += v->toString() + ",";
+		output += v->toString() + ", ";
 	}
 	output += "}";
 	return output;
@@ -195,8 +195,8 @@ vVector * vVector::operator*(const Variable & n2)
 		std::vector<std::vector<double>> dMatrix_2 = cast_Vec2->getMatrixData();
 
 		if (dMatrix_1.size() != dMatrix_2[0].size())
-			throw std::runtime_error(vException::MatrixNotCompatiableShapeException + cast_Vec2->name 
-				+"("+ std::to_string(dMatrix_1.size()) + "," + std::to_string(dMatrix_1[0].size()) + ")"
+			throw std::runtime_error(vException::MatrixNotCompatiableShapeException + cast_Vec2->name
+				+ "(" + std::to_string(dMatrix_1.size()) + "," + std::to_string(dMatrix_1[0].size()) + ")"
 				+ "(" + std::to_string(dMatrix_2.size()) + "," + std::to_string(dMatrix_2[0].size()) + ")");
 
 		std::vector<std::vector<double>> result_Matrix;
@@ -243,15 +243,145 @@ vVector * vVector::operator*(const Variable & n2)
 
 vVector * vVector::operator+(const Variable & n2)
 {
-	if(n2.gettype() != vType::vector)
-		throw std::runtime_error(vException::TypeException + n2.name);
+	vVector *result = new vVector();
 
+	if (n2.gettype() != vType::vector)
+		throw std::runtime_error(vException::TypeException + n2.name);
+	else {
+		const vVector* Vec2 = dynamic_cast<const vVector*>(&n2);
+		vVector* cast_Vec2 = const_cast<vVector*>(Vec2);
+
+		if (this->isMarix()) {
+			std::vector<std::vector<double>> dMatrix_1 = this->getMatrixData();
+
+			if (cast_Vec2->isMarix()) {
+				// matrix + matrix
+				std::vector<std::vector<double>> dMatrix_2 = cast_Vec2->getMatrixData();
+
+				if (dMatrix_1.size() != dMatrix_2.size() && dMatrix_1[0].size() != dMatrix_2[0].size())
+					throw std::runtime_error(vException::MatrixNotCompatiableShapeException + cast_Vec2->name
+						+ "(" + std::to_string(dMatrix_1.size()) + "," + std::to_string(dMatrix_1[0].size()) + ")"
+						+ "(" + std::to_string(dMatrix_2.size()) + "," + std::to_string(dMatrix_2[0].size()) + ")");
+
+				std::vector<std::vector<double>> new_vec;
+
+				for (int n = 0; n < dMatrix_1.size(); n++) {
+					std::vector<double> row;
+					for (int m = 0; m < dMatrix_1[0].size(); m++)
+						row.push_back(dMatrix_1[n][m] + dMatrix_2[n][m]);
+					new_vec.push_back(row);
+				}
+					
+				result->setMatrixData(new_vec);
+				return result;
+			}
+			else {
+				// matrix + vector -> vector +matrix 
+				return *cast_Vec2 + *this;
+			}
+		}
+		else {
+			std::vector<double> dVector1 = this->getVectorData();
+
+			if (cast_Vec2->isVector()) {
+				// vector +vecotr
+				std::vector<double> dVector2 = cast_Vec2->getVectorData();
+
+				for (int i = 0; i < dVector1.size();i++) 
+					dVector1[i] += dVector2[i];
+				
+				result->setVectorData(dVector1);
+				return result;
+			}
+			else {
+				//vector + matrix
+				if (cast_Vec2->data.size() == 1) {
+					std::vector<double> dVector2 = cast_Vec2->getMatrixData()[0];
+
+					for (int i = 0; i < dVector1.size(); i++) 
+						dVector1[i] += dVector2[i];
+					
+					result->setVectorData(dVector1);
+					return result;
+				}
+				else {
+					throw std::runtime_error(vException::TypeException + cast_Vec2->name);
+				}
+			}
+		}
+	}
 	return nullptr;
 }
 
 vVector * vVector::operator-(const Variable & n2)
 {
-	return nullptr;
+	vVector *result = new vVector();
+
+	if (n2.gettype() != vType::vector)
+		throw std::runtime_error(vException::TypeException + n2.name);
+	else {
+		const vVector* Vec2 = dynamic_cast<const vVector*>(&n2);
+		vVector* cast_Vec2 = const_cast<vVector*>(Vec2);
+
+		if (this->isMarix()) {
+			std::vector<std::vector<double>> dMatrix_1 = this->getMatrixData();
+
+			if (cast_Vec2->isMarix()) {
+				// matrix + matrix
+				std::vector<std::vector<double>> dMatrix_2 = cast_Vec2->getMatrixData();
+
+				if (dMatrix_1.size() != dMatrix_2.size() && dMatrix_1[0].size() != dMatrix_2[0].size())
+					throw std::runtime_error(vException::MatrixNotCompatiableShapeException + cast_Vec2->name
+						+ "(" + std::to_string(dMatrix_1.size()) + "," + std::to_string(dMatrix_1[0].size()) + ")"
+						+ "(" + std::to_string(dMatrix_2.size()) + "," + std::to_string(dMatrix_2[0].size()) + ")");
+
+				std::vector<std::vector<double>> new_vec;
+
+				for (int n = 0; n < dMatrix_1.size(); n++) {
+					std::vector<double> row;
+					for (int m = 0; m < dMatrix_1[0].size(); m++)
+						row.push_back(dMatrix_1[n][m] - dMatrix_2[n][m]);
+					new_vec.push_back(row);
+				}
+
+				result->setMatrixData(new_vec);
+				return result;
+			}
+			else {
+				// matrix + vector -> vector +matrix 
+				return *cast_Vec2 - *this;
+			}
+		}
+		else {
+			std::vector<double> dVector1 = this->getVectorData();
+
+			if (cast_Vec2->isVector()) {
+				// vector +vecotr
+				std::vector<double> dVector2 = cast_Vec2->getVectorData();
+
+				for (int i = 0; i < dVector1.size(); i++)
+					dVector1[i] -= dVector2[i];
+
+				result->setVectorData(dVector1);
+				return result;
+			}
+			else {
+				//vector + matrix
+				if (cast_Vec2->data.size() == 1) {
+					std::vector<double> dVector2 = cast_Vec2->getMatrixData()[0];
+
+					for (int i = 0; i < dVector1.size(); i++)
+						dVector1[i] -= dVector2[i];
+
+					result->setVectorData(dVector1);
+					return result;
+				}
+				else {
+					throw std::runtime_error(vException::TypeException + cast_Vec2->name);
+				}
+			}
+		}
+	}
 }
 
 vVector * vVector::operator/(const Variable & n2)
@@ -267,7 +397,7 @@ bool vVector::isMarix()
 		if (d1_content->gettype() != vType::vector)
 			return false;
 	}
-	
+
 	return true;
 }
 
@@ -326,7 +456,7 @@ void vVector::setMatrixData(std::vector<std::vector<double>> data)
 		this->data.push_back(new vVector(tem));
 	}
 
-	
+
 }
 
 std::vector<double> vVector::getVectorData()
@@ -347,8 +477,8 @@ void vVector::setVectorData(std::vector<double> data)
 {
 	this->data.clear();
 
-	for (auto num : data) 
-		this->data.push_back(new vNumber(num)); 
+	for (auto num : data)
+		this->data.push_back(new vNumber(num));
 }
 
 

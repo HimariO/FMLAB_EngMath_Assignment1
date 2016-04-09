@@ -5,8 +5,10 @@
 enum vType { base, number, vector, string, logic, function};
 
 namespace vException {
+	static std::string ArgNumException = "Expected Args:";
 	static std::string TypeException = "Unexpected Variable Type From:";
 	static std::string UndefinedFunctionException = "Undefined Function:";
+	static std::string UndefinedVarException = "Undefined Variable:";
 	static std::string VectorComputTypeException = "Incompatible Variable Type From Vector:";
 	static std::string MatrixComputTypeException = "Incompatible Variable Type From Matrix:";
 	static std::string MatrixNotCompatiableShapeException = "Incompatible Matrix Shape From Matrix:";
