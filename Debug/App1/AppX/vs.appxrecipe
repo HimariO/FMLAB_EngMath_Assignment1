@@ -22,17 +22,17 @@
     <AppXManifest Include="C:\Users\伯軒\Documents\Visual Studio 2015\Projects\FMLAB\Debug\App1\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-04-07T15:53:25.308</Modified>
+      <Modified>2016-04-09T01:55:12.438</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\伯軒\Documents\Visual Studio 2015\Projects\FMLAB\Debug\App1\FMLAB.exe">
       <PackagePath>FMLAB.exe</PackagePath>
-      <Modified>2016-04-08T15:42:58.467</Modified>
+      <Modified>2016-04-09T01:55:11.873</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\伯軒\Documents\Visual Studio 2015\Projects\FMLAB\Debug\App1\App1.winmd">
       <PackagePath>App1.winmd</PackagePath>
-      <Modified>2016-04-01T03:25:37.363</Modified>
+      <Modified>2016-04-09T01:55:11.354</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\伯軒\Documents\Visual Studio 2015\Projects\FMLAB\App1\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
@@ -70,7 +70,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\伯軒\Documents\Visual Studio 2015\Projects\FMLAB\Debug\App1\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-04-07T16:26:32.615</Modified>
+      <Modified>2016-04-09T01:55:12.405</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
