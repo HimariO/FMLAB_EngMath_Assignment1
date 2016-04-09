@@ -28,7 +28,7 @@
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\伯軒\Documents\Visual Studio 2015\Projects\FMLAB\Debug\App1\FMLAB.exe">
       <PackagePath>FMLAB.exe</PackagePath>
-      <Modified>2016-04-07T16:30:41.696</Modified>
+      <Modified>2016-04-08T15:42:58.467</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\伯軒\Documents\Visual Studio 2015\Projects\FMLAB\Debug\App1\App1.winmd">
       <PackagePath>App1.winmd</PackagePath>

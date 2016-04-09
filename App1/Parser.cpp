@@ -29,6 +29,7 @@ std::map<std::string, FnPtr> Parser::standar_fun_talbe{
 	{ "low_tri", low_tri },
 	{"solveLinearSys", solveLinearSys },
 	{"LeastSquare", LeastSquare },
+	{"eig", eig},
 };
 
 bool Parser::std_table_init = false;

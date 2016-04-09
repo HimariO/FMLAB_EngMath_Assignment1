@@ -563,64 +563,105 @@ Variable* LeastSquare(Args args) {  //LeastSquare (matrix, nx1 matrix)2 args
 }
 
 
+Variable* QR_Q(Args args) {  //QR (matrix)1 args
+	Variable* matrix = args[0];
+
+	if (matrix->gettype() != vType::vector )
+		throw std::runtime_error(vException::TypeException + matrix->name);
+
+	vVector *vmatrix = dynamic_cast<vVector*>(matrix);
+
+	if (!vmatrix->isMarix() )
+		throw std::runtime_error(vException::TypeException + matrix->name);
+
+	Matrix mtx = vmatrix->getMatrixData();
+	//At*A*x = At * b
+	vVector* mtx_trans = dynamic_cast<vVector*>(trans(Args{ vmatrix }));//trans for convin
+	Matrix Q;
+
+	bool first_row = true;
+
+	for (auto colume_as_row : mtx_trans->getMatrixData()) {
+		Row row;
+
+		if (first_row) {
+			double norm = 0;
+			for (auto ele : colume_as_row) {//find vector(row) length.
+				norm += pow(ele, 2);
+			}
+			norm = sqrt(norm);
+
+			for (auto ele : colume_as_row) {//find vector(row) length.
+				row.push_back(ele / norm);
+			}
+
+			Q.push_back(row);
+			first_row = false;
+		}
+		else {
+			double u1_dot_m2  = 0;
+			Row u1 = Q[Q.size()-1];
+			for (int i = 0; i<colume_as_row.size(); i++) {
+				u1_dot_m2 += (colume_as_row[i] * u1[i]);
+			}
+
+			Row u2; //m2_min_u1_dot_m2_mat_u1
+			for (int i = 0; i<colume_as_row.size(); i++) {
+				u2.push_back(colume_as_row[i] - u1_dot_m2*u1[i]);
+			}
+			Q.push_back(u2);
+		}
+	}
+
+	vVector *result = new vVector();
+	result->setMatrixData(Q);
+	return result;
+}
+
+
+Variable* eig(Args args) {  //QR (matrix)1 args
+	Variable* matrix = args[0];
+	int step = 30;
+
+	if (matrix->gettype() != vType::vector)
+		throw std::runtime_error(vException::TypeException + matrix->name);
+
+	vVector *vA = dynamic_cast<vVector*>(matrix);
+
+	if (!vA->isMarix())
+		throw std::runtime_error(vException::TypeException + matrix->name);
+
+	Matrix A = vA->getMatrixData();
+	Matrix Q; //Q= I_k
+	for (int i = 0; i<A.size(); i++) {
+		Row row;
+		for (int j = 0; j<A.size(); j++) {
+			if (i == j)
+				row.push_back(1);
+			else
+				row.push_back(0);
+		}
+	}
+
+	vVector* vQ_pre = new vVector();
+	vQ_pre->setMatrixData(Q);
+
+	for (int n = 0; n<step; n++) {
+		vVector* vQ = dynamic_cast<vVector*>(QR_Q(Args{ vA }));//trans for convin
+		vVector* vQ_t = dynamic_cast<vVector*>(trans(Args{ vQ }));
+		vA =*((*vQ_t) * (*vA)) * (*vQ);
+		vQ_pre = (*vQ_pre) * (*vQ);
+	}
+
+	vVector *result = dynamic_cast<vVector*>( concat(Args{ vA, vQ_pre, new vBool(true) }) );
+	return result;
+}
+
+
+
 Variable* mtxtest(Args args) {// ?? args
 	Args mix_arg{ args[0],args[1], new vBool(false ) };
 	return concat(mix_arg);
 }
 
 
-//Variable* det(Args args) { //matrix determinant (matrix)1 args
-//	Variable* matrix = args[0];
-//
-//	if (matrix->gettype() != vType::vector)
-//		throw std::runtime_error(vException::TypeException + matrix->name);
-//	vVector *vmatrix = dynamic_cast<vVector*>(matrix);
-//
-//	if (!vmatrix->isMarix())
-//		throw std::runtime_error(vException::TypeException + matrix->name);
-//
-//	Matrix mtx = vmatrix->getMatrixData();
-//	double result_d = 0;
-//
-//	if(mtx.size()==2 && mtx[0].size()==2){
-//		return new vNumber(mtx[0][0] * mtx[1][1] - mtx[1][0] * mtx[0][1]);
-//	}
-//	else {	
-//		Row row = mtx[0];
-//
-//		for (int m = 0; m < row.size(); m++) {
-//			double subDet_d = 0;
-//
-//			if (m == 0) {
-//				Variable *sliced = slice(Args{ matrix, new vNumber(1), new vNumber(mtx.size() - 1), new vNumber(1), new vNumber(row.size()-1)});
-//				vNumber *subDet = dynamic_cast<vNumber*>(det(Args{ sliced }));
-//				subDet_d = subDet->data;
-//
-//			}
-//			else if (m == row.size() - 1) {
-//				Variable *sliced = slice(Args{ matrix, new vNumber(1), new vNumber(mtx.size()-1), new vNumber(0), new vNumber(m - 1) });
-//				
-//				vNumber *subDet = dynamic_cast<vNumber*>(det(Args{ sliced }));
-//				subDet_d = subDet->data;
-//			}
-//			else {
-//				Variable *sliced_left = slice(Args{ matrix, new vNumber(1), new vNumber(mtx.size()-1), new vNumber(0), new vNumber(m - 1) });
-//				Variable *sliced_right = slice(Args{ matrix, new vNumber(1), new vNumber(mtx.size()-1), new vNumber(m + 1), new vNumber(row.size() - 1) });
-//				Variable *concated = concat(Args{ sliced_left, sliced_right, new vBool(false) });
-//
-//				vNumber *subDet = dynamic_cast<vNumber*>(det(Args{ concated }));
-//				subDet_d = subDet->data;
-//			}
-//
-//			if (m % 2 == 0) { //even cloume
-//				result_d += row[m] * subDet_d;
-//			}
-//			else { //odd cloume
-//				result_d -= row[m] * subDet_d;
-//			}
-//		}
-//	}
-//
-//	vNumber *result = new vNumber(result_d);
-//	return result;
-//}

@@ -1,7 +1,40 @@
 ﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (App1.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  MainPage.xaml.cpp
-c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\mainpage.xaml.cpp(115): warning C4018: '>': signed/unsigned 不相符
-c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\mainpage.xaml.cpp(126): warning C4018: '>': signed/unsigned 不相符
-c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\mainpage.xaml.cpp(167): warning C4715: '<lambda_f71c29949fdf296480b8b25449f84c16>::operator()': 不是所有控制路徑都傳回值
+  Parser.cpp
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\matrixcomput.h(18): warning C4018: '<': signed/unsigned 不相符
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\matrixcomput.h(34): warning C4244: '正在初始化': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\matrixcomput.h(35): warning C4244: '正在初始化': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\matrixcomput.h(36): warning C4244: '正在初始化': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\matrixcomput.h(37): warning C4244: '正在初始化': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\matrixcomput.h(45): warning C4018: '>=': signed/unsigned 不相符
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\matrixcomput.h(84): warning C4018: '<': signed/unsigned 不相符
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\matrixcomput.h(86): warning C4018: '>=': signed/unsigned 不相符
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\matrixcomput.h(89): warning C4018: '<': signed/unsigned 不相符
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\matrixcomput.h(91): warning C4018: '>=': signed/unsigned 不相符
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\matrixcomput.h(97): warning C4018: '>=': signed/unsigned 不相符
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\matrixcomput.h(99): warning C4018: '>=': signed/unsigned 不相符
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\matrixcomput.h(132): warning C4018: '<': signed/unsigned 不相符
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\matrixcomput.h(138): warning C4018: '>=': signed/unsigned 不相符
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\matrixcomput.h(149): warning C4018: '<': signed/unsigned 不相符
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\matrixcomput.h(155): warning C4018: '<': signed/unsigned 不相符
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\matrixcomput.h(217): warning C4018: '>=': signed/unsigned 不相符
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\matrixcomput.h(228): warning C4018: '<': signed/unsigned 不相符
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\matrixcomput.h(231): warning C4018: '<': signed/unsigned 不相符
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\matrixcomput.h(237): warning C4018: '<': signed/unsigned 不相符
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\matrixcomput.h(280): warning C4018: '<': signed/unsigned 不相符
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\matrixcomput.h(286): warning C4018: '>=': signed/unsigned 不相符
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\matrixcomput.h(300): warning C4018: '<': signed/unsigned 不相符
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\matrixcomput.h(305): warning C4018: '<': signed/unsigned 不相符
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\matrixcomput.h(343): warning C4018: '<': signed/unsigned 不相符
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\matrixcomput.h(345): warning C4018: '<': signed/unsigned 不相符
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\matrixcomput.h(404): warning C4018: '<': signed/unsigned 不相符
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\matrixcomput.h(406): warning C4018: '<': signed/unsigned 不相符
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\matrixcomput.h(414): warning C4018: '<': signed/unsigned 不相符
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\matrixcomput.h(418): warning C4018: '<': signed/unsigned 不相符
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\matrixcomput.h(604): warning C4018: '<': signed/unsigned 不相符
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\matrixcomput.h(609): warning C4018: '<': signed/unsigned 不相符
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\matrixcomput.h(636): warning C4018: '<': signed/unsigned 不相符
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\matrixcomput.h(638): warning C4018: '<': signed/unsigned 不相符
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\vectorcomput.h(24): warning C4018: '<': signed/unsigned 不相符
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\parser.cpp(360): warning C4018: '<': signed/unsigned 不相符
   App1.vcxproj -> C:\Users\伯軒\Documents\Visual Studio 2015\Projects\FMLAB\Debug\App1\FMLAB.exe
   App1.vcxproj -> C:\Users\伯軒\Documents\Visual Studio 2015\Projects\FMLAB\Debug\App1\FMLAB.pdb (Partial PDB)

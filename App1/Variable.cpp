@@ -191,35 +191,36 @@ vVector * vVector::operator*(const Variable & n2)
 		const vVector* Vec2 = dynamic_cast<const vVector*>(&n2);
 		vVector* cast_Vec2 = const_cast<vVector*>(Vec2);
 
-		if (cast_Vec2->isMarix()) {
+		std::vector<std::vector<double>> dMatrix_1 = this->getMatrixData();
+		std::vector<std::vector<double>> dMatrix_2 = cast_Vec2->getMatrixData();
 
-			std::vector<std::vector<double>> dMatrix_1 = this->getMatrixData();
-			std::vector<std::vector<double>> dMatrix_2 = cast_Vec2->getMatrixData();
+		if(dMatrix_1.size() != dMatrix_2[0].size())
+			throw std::runtime_error(vException::MatrixNotCompatiableShapeException + cast_Vec2->name);
 
-			std::vector<std::vector<double>> result_Matrix;
+		std::vector<std::vector<double>> result_Matrix;
 
-			for (int n = 0; n < dMatrix_1.size(); n++) {
-				std::vector<double> *row = new std::vector<double>;
+		for (int n = 0; n < dMatrix_1.size(); n++) {
+			std::vector<double> *row = new std::vector<double>;
 
-				for (int m = 0; m < dMatrix_2[0].size(); m++) {
-					double n_m=0;
+			for (int m = 0; m < dMatrix_2[0].size(); m++) {
+				double n_m=0;
 					
-					for (int i = 0; i < dMatrix_1.size(); i++) {
-						double lef = dMatrix_1[n][i];
-						double righ = dMatrix_2[i][m];
-						n_m += dMatrix_1[n][i] * dMatrix_2[i][m];
+				for (int i = 0; i < dMatrix_1.size(); i++) {
+					double lef = dMatrix_1[n][i];
+					double righ = dMatrix_2[i][m];
+					n_m += dMatrix_1[n][i] * dMatrix_2[i][m];
 
-					}
-					row->push_back(n_m);
 				}
-				result_Matrix.push_back(*row);
+				row->push_back(n_m);
 			}
-
-			vVector *result = new vVector();
-			result->setMatrixData(result_Matrix);
-
-			return result;
+			result_Matrix.push_back(*row);
 		}
+
+		vVector *result = new vVector();
+		result->setMatrixData(result_Matrix);
+
+		return result;
+	
 	}
 	else { // scalar multiplication with vector 
 		if (n2.gettype() != vType::number)
