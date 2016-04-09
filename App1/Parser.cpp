@@ -30,6 +30,8 @@ std::map<std::string, FnPtr> Parser::standar_fun_talbe{
 	{"solveLinearSys", solveLinearSys },
 	{"LeastSquare", LeastSquare },
 	{"eig", eig},
+	{"QR_Q", QR_Q },
+	{"rank", rank }
 };
 
 bool Parser::std_table_init = false;

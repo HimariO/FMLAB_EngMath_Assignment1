@@ -194,8 +194,10 @@ vVector * vVector::operator*(const Variable & n2)
 		std::vector<std::vector<double>> dMatrix_1 = this->getMatrixData();
 		std::vector<std::vector<double>> dMatrix_2 = cast_Vec2->getMatrixData();
 
-		if(dMatrix_1.size() != dMatrix_2[0].size())
-			throw std::runtime_error(vException::MatrixNotCompatiableShapeException + cast_Vec2->name);
+		if (dMatrix_1.size() != dMatrix_2[0].size())
+			throw std::runtime_error(vException::MatrixNotCompatiableShapeException + cast_Vec2->name 
+				+"("+ std::to_string(dMatrix_1.size()) + "," + std::to_string(dMatrix_1[0].size()) + ")"
+				+ "(" + std::to_string(dMatrix_2.size()) + "," + std::to_string(dMatrix_2[0].size()) + ")");
 
 		std::vector<std::vector<double>> result_Matrix;
 
@@ -203,8 +205,8 @@ vVector * vVector::operator*(const Variable & n2)
 			std::vector<double> *row = new std::vector<double>;
 
 			for (int m = 0; m < dMatrix_2[0].size(); m++) {
-				double n_m=0;
-					
+				double n_m = 0;
+
 				for (int i = 0; i < dMatrix_1.size(); i++) {
 					double lef = dMatrix_1[n][i];
 					double righ = dMatrix_2[i][m];
@@ -220,7 +222,7 @@ vVector * vVector::operator*(const Variable & n2)
 		result->setMatrixData(result_Matrix);
 
 		return result;
-	
+
 	}
 	else { // scalar multiplication with vector 
 		if (n2.gettype() != vType::number)
@@ -228,9 +230,9 @@ vVector * vVector::operator*(const Variable & n2)
 
 		std::vector<Variable*> *nVector = new std::vector<Variable*>;
 
-		for (int i = 0; i < this->data.size();i++) {
+		for (int i = 0; i < this->data.size(); i++) {
 			vNumber *tem = dynamic_cast<vNumber*>(this->data[i]);
-			Variable *res = *tem * n2;	
+			Variable *res = *tem * n2;
 			nVector->push_back(res);
 		}
 

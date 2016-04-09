@@ -20,6 +20,7 @@
     <ClCompile Include="Parser.cpp" />
     <ClCompile Include="SyntaxNode.cpp" />
     <ClCompile Include="Variable.cpp" />
+    <ClCompile Include="MatrixComput.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
