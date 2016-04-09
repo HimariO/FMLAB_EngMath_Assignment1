@@ -4,8 +4,8 @@ ehthumbs.db
 *.ipch
 # Folder config file
 Desktop.ini
-.Debug
-.App1/Debug
+/Debug
+/App1/Debug
 
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
