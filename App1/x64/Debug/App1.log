@@ -1,0 +1,107 @@
+﻿  XamlTypeInfo.g.cpp
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(31): error C2039: 'XamlBindingsBase': 不是 'XamlBindingInfo' 的成員
+  c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\xamlbindinginfo.g.h(11): note: 請參閱 'XamlBindingInfo' 的宣告
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(31): error C2504: 'XamlBindingsBase': 基底類別未定義
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(31): error C2143: 語法錯誤: 遺漏 ',' (在 '<' 之前)
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(62): error C2039: 'SetDataRoot': 不是 'App1::MainPage::MainPage_obj5_Bindings' 的成員
+  c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(31): note: 請參閱 'App1::MainPage::MainPage_obj5_Bindings' 的宣告
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(63): error C2039: '_dataContextChangedToken': 不是 'App1::MainPage::MainPage_obj5_Bindings' 的成員
+  c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(31): note: 請參閱 'App1::MainPage::MainPage_obj5_Bindings' 的宣告
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(63): error C2228: '.Value' 的左邊必須有類別/結構/等位
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(65): error C2039: '_dataContextChangedToken': 不是 'App1::MainPage::MainPage_obj5_Bindings' 的成員
+  c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(31): note: 請參閱 'App1::MainPage::MainPage_obj5_Bindings' 的宣告
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(66): error C2039: '_dataContextChangedToken': 不是 'App1::MainPage::MainPage_obj5_Bindings' 的成員
+  c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(31): note: 請參閱 'App1::MainPage::MainPage_obj5_Bindings' 的宣告
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(66): error C2228: '.Value' 的左邊必須有類別/結構/等位
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(68): error C2039: '_isInitialized': 不是 'App1::MainPage::MainPage_obj5_Bindings' 的成員
+  c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(31): note: 請參閱 'App1::MainPage::MainPage_obj5_Bindings' 的宣告
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(84): error C2065: 'NOT_PHASED': 未宣告的識別項
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(93): error C2065: 'NOT_PHASED': 未宣告的識別項
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(95): error C3083: 'XamlBindingSetters': '::' 左邊的符號必須是類型
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(95): error C2039: 'Set_Windows_UI_Xaml_Controls_TextBlock_Text': 不是 'XamlBindingInfo' 的成員
+  c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\xamlbindinginfo.g.h(11): note: 請參閱 'XamlBindingInfo' 的宣告
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(95): error C3861: 'Set_Windows_UI_Xaml_Controls_TextBlock_Text': 找不到識別項
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(100): error C2065: 'NOT_PHASED': 未宣告的識別項
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(102): error C3083: 'XamlBindingSetters': '::' 左邊的符號必須是類型
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(102): error C2039: 'Set_Windows_UI_Xaml_Controls_TextBlock_Text': 不是 'XamlBindingInfo' 的成員
+  c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\xamlbindinginfo.g.h(11): note: 請參閱 'XamlBindingInfo' 的宣告
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(102): error C3861: 'Set_Windows_UI_Xaml_Controls_TextBlock_Text': 找不到識別項
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(111): error C2039: 'XamlBindingsBase': 不是 'XamlBindingInfo' 的成員
+  c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\xamlbindinginfo.g.h(11): note: 請參閱 'XamlBindingInfo' 的宣告
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(111): error C2504: 'XamlBindingsBase': 基底類別未定義
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(111): error C2143: 語法錯誤: 遺漏 ',' (在 '<' 之前)
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(142): error C2039: 'SetDataRoot': 不是 'App1::MainPage::MainPage_obj9_Bindings' 的成員
+  c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(111): note: 請參閱 'App1::MainPage::MainPage_obj9_Bindings' 的宣告
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(143): error C2039: '_dataContextChangedToken': 不是 'App1::MainPage::MainPage_obj9_Bindings' 的成員
+  c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(111): note: 請參閱 'App1::MainPage::MainPage_obj9_Bindings' 的宣告
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(143): error C2228: '.Value' 的左邊必須有類別/結構/等位
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(145): error C2039: '_dataContextChangedToken': 不是 'App1::MainPage::MainPage_obj9_Bindings' 的成員
+  c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(111): note: 請參閱 'App1::MainPage::MainPage_obj9_Bindings' 的宣告
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(146): error C2039: '_dataContextChangedToken': 不是 'App1::MainPage::MainPage_obj9_Bindings' 的成員
+  c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(111): note: 請參閱 'App1::MainPage::MainPage_obj9_Bindings' 的宣告
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(146): error C2228: '.Value' 的左邊必須有類別/結構/等位
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(148): error C2039: '_isInitialized': 不是 'App1::MainPage::MainPage_obj9_Bindings' 的成員
+  c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(111): note: 請參閱 'App1::MainPage::MainPage_obj9_Bindings' 的宣告
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(164): error C2065: 'NOT_PHASED': 未宣告的識別項
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(173): error C2065: 'NOT_PHASED': 未宣告的識別項
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(175): error C3083: 'XamlBindingSetters': '::' 左邊的符號必須是類型
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(175): error C2039: 'Set_Windows_UI_Xaml_Controls_TextBlock_Text': 不是 'XamlBindingInfo' 的成員
+  c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\xamlbindinginfo.g.h(11): note: 請參閱 'XamlBindingInfo' 的宣告
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(175): error C3861: 'Set_Windows_UI_Xaml_Controls_TextBlock_Text': 找不到識別項
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(180): error C2065: 'NOT_PHASED': 未宣告的識別項
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(182): error C3083: 'XamlBindingSetters': '::' 左邊的符號必須是類型
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(182): error C2039: 'Set_Windows_UI_Xaml_Controls_TextBlock_Text': 不是 'XamlBindingInfo' 的成員
+  c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\xamlbindinginfo.g.h(11): note: 請參閱 'XamlBindingInfo' 的宣告
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(182): error C3861: 'Set_Windows_UI_Xaml_Controls_TextBlock_Text': 找不到識別項
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(191): error C2039: 'XamlBindingsBase': 不是 'XamlBindingInfo' 的成員
+  c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\xamlbindinginfo.g.h(11): note: 請參閱 'XamlBindingInfo' 的宣告
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(191): error C2504: 'XamlBindingsBase': 基底類別未定義
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(191): error C2143: 語法錯誤: 遺漏 ',' (在 '<' 之前)
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(219): error C2039: 'SetDataRoot': 不是 'App1::MainPage::MainPage_obj12_Bindings' 的成員
+  c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(191): note: 請參閱 'App1::MainPage::MainPage_obj12_Bindings' 的宣告
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(220): error C2039: '_dataContextChangedToken': 不是 'App1::MainPage::MainPage_obj12_Bindings' 的成員
+  c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(191): note: 請參閱 'App1::MainPage::MainPage_obj12_Bindings' 的宣告
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(220): error C2228: '.Value' 的左邊必須有類別/結構/等位
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(222): error C2039: '_dataContextChangedToken': 不是 'App1::MainPage::MainPage_obj12_Bindings' 的成員
+  c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(191): note: 請參閱 'App1::MainPage::MainPage_obj12_Bindings' 的宣告
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(223): error C2039: '_dataContextChangedToken': 不是 'App1::MainPage::MainPage_obj12_Bindings' 的成員
+  c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(191): note: 請參閱 'App1::MainPage::MainPage_obj12_Bindings' 的宣告
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(223): error C2228: '.Value' 的左邊必須有類別/結構/等位
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(225): error C2039: '_isInitialized': 不是 'App1::MainPage::MainPage_obj12_Bindings' 的成員
+  c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(191): note: 請參閱 'App1::MainPage::MainPage_obj12_Bindings' 的宣告
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(240): error C2065: 'NOT_PHASED': 未宣告的識別項
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(248): error C2065: 'NOT_PHASED': 未宣告的識別項
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(250): error C3083: 'XamlBindingSetters': '::' 左邊的符號必須是類型
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(250): error C2039: 'Set_Windows_UI_Xaml_Controls_TextBlock_Text': 不是 'XamlBindingInfo' 的成員
+  c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\xamlbindinginfo.g.h(11): note: 請參閱 'XamlBindingInfo' 的宣告
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(250): error C3861: 'Set_Windows_UI_Xaml_Controls_TextBlock_Text': 找不到識別項
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(263): error C2664: 'Windows::Foundation::EventRegistrationToken Windows::UI::Xaml::FrameworkElement::DataContextChanged::add(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::FrameworkElement ^,Windows::UI::Xaml::DataContextChangedEventArgs ^> ^)': 無法將引數 1 從 'Windows::UI::Xaml::DragEventHandler ^' 轉換為 'Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::FrameworkElement ^,Windows::UI::Xaml::DataContextChangedEventArgs ^> ^'
+  c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(263): note: 沒有使用者定義的轉換運算子，或
+  c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(263): note: 指向的類型沒有相關; 轉換必須有 reinterpret_cast、C-Style 轉換或函式樣式轉換
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(280): error C2664: 'Windows::Foundation::EventRegistrationToken Windows::UI::Xaml::FrameworkElement::DataContextChanged::add(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::FrameworkElement ^,Windows::UI::Xaml::DataContextChangedEventArgs ^> ^)': 無法將引數 1 從 'Windows::UI::Xaml::Input::KeyEventHandler ^' 轉換為 'Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::FrameworkElement ^,Windows::UI::Xaml::DataContextChangedEventArgs ^> ^'
+  c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(280): note: 沒有使用者定義的轉換運算子，或
+  c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(280): note: 指向的類型沒有相關; 轉換必須有 reinterpret_cast、C-Style 轉換或函式樣式轉換
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(282): error C2664: 'Windows::Foundation::EventRegistrationToken Windows::UI::Xaml::FrameworkElement::DataContextChanged::add(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::FrameworkElement ^,Windows::UI::Xaml::DataContextChangedEventArgs ^> ^)': 無法將引數 1 從 'Windows::UI::Xaml::Input::KeyEventHandler ^' 轉換為 'Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::FrameworkElement ^,Windows::UI::Xaml::DataContextChangedEventArgs ^> ^'
+  c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(282): note: 沒有使用者定義的轉換運算子，或
+  c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(282): note: 指向的類型沒有相關; 轉換必須有 reinterpret_cast、C-Style 轉換或函式樣式轉換
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(284): error C2664: 'Windows::Foundation::EventRegistrationToken Windows::UI::Xaml::UIElement::DragEnter::add(Windows::UI::Xaml::DragEventHandler ^)': 無法將引數 1 從 'Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::Controls::AutoSuggestBox ^,Windows::UI::Xaml::Controls::AutoSuggestBoxTextChangedEventArgs ^> ^' 轉換為 'Windows::UI::Xaml::DragEventHandler ^'
+  c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(284): note: 沒有使用者定義的轉換運算子，或
+  c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(284): note: 指向的類型沒有相關; 轉換必須有 reinterpret_cast、C-Style 轉換或函式樣式轉換
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(286): error C2664: 'Windows::Foundation::EventRegistrationToken Windows::UI::Xaml::UIElement::KeyDown::add(Windows::UI::Xaml::Input::KeyEventHandler ^)': 無法將引數 1 從 'Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::Controls::AutoSuggestBox ^,Windows::UI::Xaml::Controls::AutoSuggestBoxSuggestionChosenEventArgs ^> ^' 轉換為 'Windows::UI::Xaml::Input::KeyEventHandler ^'
+  c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(286): note: 沒有使用者定義的轉換運算子，或
+  c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(286): note: 指向的類型沒有相關; 轉換必須有 reinterpret_cast、C-Style 轉換或函式樣式轉換
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(288): error C2664: 'Windows::Foundation::EventRegistrationToken Windows::UI::Xaml::UIElement::KeyUp::add(Windows::UI::Xaml::Input::KeyEventHandler ^)': 無法將引數 1 從 'Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::Controls::AutoSuggestBox ^,Windows::UI::Xaml::Controls::AutoSuggestBoxQuerySubmittedEventArgs ^> ^' 轉換為 'Windows::UI::Xaml::Input::KeyEventHandler ^'
+  c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(288): note: 沒有使用者定義的轉換運算子，或
+  c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(288): note: 指向的類型沒有相關; 轉換必須有 reinterpret_cast、C-Style 轉換或函式樣式轉換
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(309): error C2039: 'SetDataRoot': 不是 'App1::MainPage::MainPage_obj5_Bindings' 的成員
+  c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(31): note: 請參閱 'App1::MainPage::MainPage_obj5_Bindings' 的宣告
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(310): error C2664: 'XamlBindingInfo::XamlBindings::XamlBindings(const XamlBindingInfo::XamlBindings %)': 無法將引數 1 從 'App1::MainPage::MainPage_obj5_Bindings *' 轉換為 'XamlBindingInfo::IXamlBindings *'
+  c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(310): note: 指向的類型沒有相關; 轉換必須有 reinterpret_cast、C-Style 轉換或函式樣式轉換
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(319): error C2039: 'SetDataRoot': 不是 'App1::MainPage::MainPage_obj9_Bindings' 的成員
+  c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(111): note: 請參閱 'App1::MainPage::MainPage_obj9_Bindings' 的宣告
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(320): error C2664: 'XamlBindingInfo::XamlBindings::XamlBindings(const XamlBindingInfo::XamlBindings %)': 無法將引數 1 從 'App1::MainPage::MainPage_obj9_Bindings *' 轉換為 'XamlBindingInfo::IXamlBindings *'
+  c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(320): note: 指向的類型沒有相關; 轉換必須有 reinterpret_cast、C-Style 轉換或函式樣式轉換
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(329): error C2039: 'SetDataRoot': 不是 'App1::MainPage::MainPage_obj12_Bindings' 的成員
+  c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(191): note: 請參閱 'App1::MainPage::MainPage_obj12_Bindings' 的宣告
+c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(330): error C2664: 'XamlBindingInfo::XamlBindings::XamlBindings(const XamlBindingInfo::XamlBindings %)': 無法將引數 1 從 'App1::MainPage::MainPage_obj12_Bindings *' 轉換為 'XamlBindingInfo::IXamlBindings *'
+  c:\users\伯軒\documents\visual studio 2015\projects\fmlab\app1\generated files\mainpage.g.hpp(330): note: 指向的類型沒有相關; 轉換必須有 reinterpret_cast、C-Style 轉換或函式樣式轉換

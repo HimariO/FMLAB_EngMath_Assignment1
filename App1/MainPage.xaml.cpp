@@ -183,7 +183,7 @@ void App1::MainPage::LoadDataFile(std::string path) {
 		try {
 			String ^text = task.get();
 			std::string file_name = std::regex_replace(path, std::regex("\\.\\w+$"), "");
-			this->OutputList->Append(ref new OutputDisplay("", "File Loading."));
+			this->OutputList->Append(ref new OutputDisplay("", "File ["+sToS(path)+"] Loading."));
 
 			std::string sd_text = STos(text);
 			std::stringstream ss(sd_text);

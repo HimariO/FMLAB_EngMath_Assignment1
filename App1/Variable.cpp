@@ -230,7 +230,7 @@ vVector * vVector::operator*(const Variable & n2)
 				throw std::runtime_error(vException::MatrixNotCompatiableShapeException + cast_Vec2->name);
 
 			std::vector<double> dVector = cast_Vec2->getVectorData();
-			int limit = dMatrix_1.size[0].size() > dVector.size() ? dVector.size() : dMatrix_1[0].size();
+			int limit = dMatrix_1[0].size() > dVector.size() ? dVector.size() : dMatrix_1[0].size();
 
 			for (int i = 0; i < limit; i++)
 				dMatrix_1[0][i] *= dVector[i];

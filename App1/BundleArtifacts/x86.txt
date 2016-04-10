@@ -1,0 +1,2 @@
+MainPackage=C:\Users\伯軒\Documents\Visual Studio 2015\Projects\FMLAB\Debug\App1\FMLAB_1.0.2.0_Win32_Debug.appx
+SymbolPackage=C:\Users\伯軒\Documents\Visual Studio 2015\Projects\FMLAB\AppPackages\FMLAB\FMLAB_1.0.2.0_Debug_Test\FMLAB_1.0.2.0_Win32_Debug.appxsym
