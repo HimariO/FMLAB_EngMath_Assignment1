@@ -44,6 +44,8 @@ std::map<std::string, FnPtr> Parser::standar_fun_talbe{
 	{ "parallel",parallel },
 	{ "area",area },
 	{ "orthogonal",orthogonal },
+	{"plane_normal", plane_normal },
+	{"angle", angle },
 };
 
 bool Parser::std_table_init = false;
