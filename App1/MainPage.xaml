@@ -131,6 +131,7 @@
                                 <TextBlock Text="{x:Bind Out}" 
                                    FontSize="14"
                                    Foreground="White" 
+                                    TextWrapping="Wrap"
                                    />
                             </StackPanel>
                         </DataTemplate>

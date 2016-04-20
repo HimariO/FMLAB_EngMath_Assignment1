@@ -191,6 +191,7 @@ void App1::MainPage::LoadDataFile(std::string path) {
 
 			std::getline(ss, line);
 			int variable_num = std::stoi(line);
+			int data_count = 0;
 
 			while (std::getline(ss, line)) {
 				if (line == "M" || line == "m") {
@@ -218,7 +219,8 @@ void App1::MainPage::LoadDataFile(std::string path) {
 
 					vVector *mtx = new vVector();
 					mtx->setMatrixData(matrix);
-					mtx->name = file_name + "_" + std::to_string(this->parser->scope.size());
+					mtx->name = file_name + "_" + std::to_string(data_count);
+					data_count++;
 					this->OutputList->Append(ref new OutputDisplay("", "Load   " + sToS(mtx->name)));
 					this->parser->udpate_variable(mtx);
 				}
@@ -241,7 +243,8 @@ void App1::MainPage::LoadDataFile(std::string path) {
 
 					vVector *mtx = new vVector();
 					mtx->setVectorData(row);
-					mtx->name = file_name + "_" + std::to_string(this->parser->scope.size());
+					mtx->name = file_name + "_" + std::to_string(data_count);
+					data_count++;
 					this->parser->udpate_variable(mtx);
 				}
 			}
